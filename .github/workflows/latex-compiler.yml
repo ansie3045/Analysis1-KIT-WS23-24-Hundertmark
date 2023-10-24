@@ -5,15 +5,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v3
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
+        uses: actions/checkout@v2
+      - name: pdflatex main
+        uses: dante-ev/latex-action@latest
         with:
-          root_file: Vorlesung-1-20231024/main.tex
-        env:
-          TEXINPUTS: ".:./ocencfd//:"
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+          root_file: main.tex
+          compiler: pdflatex
+          args: -interaction=nonstopmode -shell-escape
+      - name: bibtex main
+        uses: dante-ev/latex-action@latest
         with:
-          name: PDF
-          path: Vorlesung-1-20231024/main.pdf
+          root_file: main.aux
+          compiler: bibtex
+          args: 
+      - name: pdflatex main
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: main.tex
+          compiler: pdflatex
+          args: -interaction=nonstopmode -shell-escape
