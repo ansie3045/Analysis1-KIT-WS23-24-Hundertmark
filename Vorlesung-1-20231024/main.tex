@@ -23,32 +23,36 @@
 	\maketitle % creates title using information in preamble (title, author, date)
     \section{Beispiele}
         Die Natürlichen Zahlen $\mathbb{N}$ sind alle Zählzahlen ($1,2,3,4,5,...$) \\
-         $$n\in \mathbb{N} \text{ist gerade mit } n=2k\\$$
-         $$n\in \mathbb{N} \text{ist ungerade mit } n=2k-1$$
+         $$n\in \mathbb{N} \text{ ist gerade mit } n=2k\\$$
+         $$n\in \mathbb{N} \text{ ist ungerade mit } n=2k-1$$
         \subsection{Behauptung 1}
             Für $n\in \mathbb{N}$ ist $n$ gerade, folgt aus $n^2$ gerade\\\\
-            \textbf{Direkter Beweis:}\\
-                $$n=2k$$
-                $$\to n^2= 4k^2$$
-                $$\Leftrightarrow n^2= 2\cdot 2k^2 \text{ mit } 2k^2 \in \mathbb{N}$$
-                $$\to n^2 \text{ ist gerade}$$
+            \textbf{Direkter Beweis:}
+            \begin{align*}
+                n &= 2k \\
+                \implies n^2 &= 4k^2 \\
+                \, &= 2 \cdot \underbrace{(2k^2)}_{\in \mathbb{N}} \\
+                &\implies n^2 \text{ ist gerade}
+            \end{align*}
         \subsection{Behauptung 2}
             aus $n^2$ gerade folgt $n$ gerade. Diese Aussage zu treffen ist schwierig, da man mit Wurzeln hantieren muss. Was allerdings einfach zu beweisen ist, ist Behauptung 3
         \subsection{Behauptung 3}
             Aus $n$ ungerade folgt $n^2$ ungerade\\\\
             \textbf{Beweis durch Kontraposition:}\\
                 Annahme: $n=2k-1$ mit $k\in \mathbb{N}$
-                $$n^2=(2k-1)^2$$
-                $$\Leftrightarrow 4k^2-2\cdot 2k+1$$
-                $$\Leftrightarrow 2(2k^2-2k)+1$$
-                $$\Leftrightarrow 2(2k(k-1))+1$$
-                $$\Leftrightarrow 2(2k(k-1)+1)-1$$
-                $$\Leftrightarrow 2(2k^2 - 2k + 1) - 1 \text{ mit } 2k^2 - 2k + 1 \in \mathbb{N}$$
+                \begin{align*}
+                    n^2 &= (2k-1)^2 \\
+                    \, &= 4k^2 - 4k + 1 \\
+                    \, &= 2(2k^2 - 2k) + 1 \\
+                    \, &= 2(2k(k-1) + 1 \\
+                    \, &= 2\underbrace{(2k(k-1)+1)}_{\in \mathbb{N}} - 1 \\
+                    &\implies n^2 \text{ ist ungerade}
+                \end{align*}
             \textbf{Frage: Was hat Beh. 2 mit Beh. 3 zu tun?}\\
             p="$n$ ist gerade", q="$n^2$ ist gerade"\\
             Beh. 2: Aus q folgt p\\
             Beh. 3 Aus nicht p folgt nicht q \textbf{(Kontraposition)}
-            \textbf{$$A\to B \Leftrightarrow \lnot B \to \lnot A$$}
+            \textbf{$$A\implies B \Leftrightarrow \lnot B \implies \lnot A$$}
         \subsection{Beispiel 2}
         Beweis durch Widerspruch: $\sqrt{2}$ ist irrational\\\\
         \textbf{Alternativ Beweis}\\
