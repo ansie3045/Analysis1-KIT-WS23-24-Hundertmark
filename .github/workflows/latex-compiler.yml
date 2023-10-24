@@ -9,7 +9,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: "Vorlesung 1 20231024/main.tex"
+          root_file: "./main.tex"
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
