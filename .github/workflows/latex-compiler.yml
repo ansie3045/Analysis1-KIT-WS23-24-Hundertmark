@@ -16,4 +16,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: PDF
-          path: main.pdf
+          path: Vorlesung-1-20231024/main.pdf
