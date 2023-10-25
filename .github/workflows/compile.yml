@@ -1,0 +1,25 @@
+name: Compile
+on: [push]
+env:
+  IMAGE_NAME: texlive
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Compile
+        uses: addnab/docker-run-action@v3
+        with:
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io
+          image: ${{ github.repository_owner }}/$IMAGE_NAME
+          run: |
+            cd Vorlesung-1-20231024
+            latexmk
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          path: Vorlesung-1-20231024/*.pdf
+          if-no-files-found: error
