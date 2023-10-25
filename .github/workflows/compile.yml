@@ -3,24 +3,28 @@ on: [push]
 env:
   IMAGE_NAME: texlive
 jobs:
-  compile:
+  image_id:
     runs-on: ubuntu-latest
+    outputs:
+      image_id: ${{ steps.image_id.outputs.IMAGE_ID }}
+    steps:
+      - id: image_id
+        run: echo "IMAGE_ID=$(echo "ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+  compile:
+    needs: image_id
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ needs.image_id.outputs.image_id }}
+      credentials:
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Compute image id
-        id: image_id
-        run: echo "IMAGE_ID=$(echo "ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
       - name: Compile
-        uses: addnab/docker-run-action@v3
-        with:
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: ghcr.io
-          image: ${{ steps.image_id.outputs.IMAGE_ID }}
-          run: |
-            cd Vorlesung-1-20231024
-            latexmk
+        run: |
+          cd Vorlesung-1-20231024
+          latexmk
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
