@@ -1,0 +1,101 @@
+\usepackage{amsmath} 
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{breqn}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{soul}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{authblk}
+\usepackage[font={bf},labelfont={bf}]{caption}
+\usepackage{array}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\RequirePackage{etoolbox}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=blue,
+    citecolor=black,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\makeatletter
+% Patch case where name and year are separated by aysep
+\patchcmd{\NAT@citex}
+  {\@citea\NAT@hyper@{%
+     \NAT@nmfmt{\NAT@nm}%
+     \hyper@natlinkbreak{\NAT@aysep\NAT@spacechar}{\@citeb\@extra@b@citeb}%
+     \NAT@date}}
+  {\@citea\NAT@nmfmt{\NAT@nm}%
+   \NAT@aysep\NAT@spacechar\NAT@hyper@{\NAT@date}}{}{}
+
+% Patch case where name and year are separated by opening bracket
+\patchcmd{\NAT@citex}
+  {\@citea\NAT@hyper@{%
+     \NAT@nmfmt{\NAT@nm}%
+     \hyper@natlinkbreak{\NAT@spacechar\NAT@@open\if*#1*\else#1\NAT@spacechar\fi}%
+       {\@citeb\@extra@b@citeb}%
+     \NAT@date}}
+  {\@citea\NAT@nmfmt{\NAT@nm}%
+   \NAT@spacechar\NAT@@open\if*#1*\else#1\NAT@spacechar\fi\NAT@hyper@{\NAT@date}}{}{}
+\makeatother    
+%%% Link to fix the error https://tex.stackexchange.com/questions/82139/hyperlinking-page-numbers-and-possessive-in-natbib
+
+%TITLE FIELD LINKS
+\DeclareRobustCommand*\authorID[1]{\gdef\@authorID{By: \href{ocean-cfd.engr.tamu.edu/members\##1}{\@author}}}
+\DeclareRobustCommand*\documentID[1]{\gdef\@documentID{}}
+\DeclareRobustCommand*\fileInclude[1]{\gdef\@fileInclude{#1}}
+%\gdef\@linkToFile{Attachment : \href{./files/\@fileInclude}{\@fileInclude}}
+
+\newcommand\mainflexsplit{}
+\newcommand\secondaryflexsplit{}
+
+\usepackage{letltxmacro}
+\LetLtxMacro{\originaleqref}{\eqref}
+\renewcommand{\eqref}{Eq.~\originaleqref}
+\newcommand\figref[1]{Fig.~\ref{#1}}
+\newcommand\tableref[1]{Table~\ref{#1}}
+\newcommand\sectref[1]{Section~\ref{#1}}
+\newcommand\ieq[1]{\(#1\)}
+
+
+\newcommand\zwspace[0]{\hspace{0pt}}
+
+\makeatletter    
+\renewcommand{\maketitle}     
+{
+	{\raggedright % Note the extra {
+		\begin{center}
+		{\Huge \bfseries \sffamily \@title }\\[2ex] 
+		{\large  \@author } \\[4ex]      
+		\@date\\
+		\rule{\linewidth}{0.4pt}
+		
+		\end{center}
+	}
+}
+\makeatother     
+%%% Link for editing the title format http://latex.silmaril.ie/formattinginformation/macinf.html
+%%% Further replace h! by !ht for the figure header to remove the warning
+
+\lstset{
+  basicstyle=\ttfamily,
+  frame=single,
+  breaklines=true,
+  aboveskip=1em,
+  belowskip=1em,
+  escapeinside={(*@}{@*)},
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+  showstringspaces=false,
+}
