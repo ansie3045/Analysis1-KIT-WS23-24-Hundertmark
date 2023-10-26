@@ -1,7 +1,7 @@
 name: Build Docker Image
 on: workflow_dispatch
 env:
-  IMAGE_NAME: texlive/texlive
+  IMAGE_NAME: texlive
 jobs:
   build_docker_image:
     runs-on: ubuntu-latest
