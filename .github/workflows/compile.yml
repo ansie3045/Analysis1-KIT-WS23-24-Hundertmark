@@ -1,0 +1,32 @@
+name: Compile
+on: [push, workflow_dispatch]
+env:
+  IMAGE_NAME: texlive
+jobs:
+  image_id:
+    runs-on: ubuntu-latest
+    outputs:
+      image_id: ${{ steps.image_id.outputs.IMAGE_ID }}
+    steps:
+      - id: image_id
+        run: echo "IMAGE_ID=$(echo "ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+  compile:
+    needs: image_id
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ needs.image_id.outputs.image_id }}
+      credentials:
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Compile
+        run: |
+          cd Vorlesung-1-20231024
+          latexmk
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          path: Vorlesung-1-20231024/*.pdf
+          if-no-files-found: error
