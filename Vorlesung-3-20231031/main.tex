@@ -1,0 +1,49 @@
+\documentclass{report}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+\title{Skript Analysis 1 Vorlesung 1} % Sets article title
+\author{\textit{Alle Angaben ohne Gewähr}} % Sets authors name
+ %Names of file to attach
+\usepackage[ngerman]{babel}
+\date{\today} % Sets date for publication as date compiled
+\setcounter{section}{0}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section{Beispiele für Nutzung}
+
+\dfn{Bijektive Funktion}{
+Seien $X$ und $Y$ Mengen und sei $f$ eine Abbildung oder eine Funktion, die von $X$ nach $Y$ abbildet, also $f: X \rightarrow Y$. Dann heißt $f$ bijektiv, wenn für alle $y \in Y$ genau ein $x \in X$ mit $f(x)=y$ existiert, formal:
+$$
+\forall y \in Y: \exists ! x \in X: \quad f(x)=y
+$$}
+
+\qs{Die Fragen aller Fragen}{Ist das die Frage?}
+\sol{Alle Beweise sind trivial. \qed}
+\nt{Es sei $\mathscr{A}(x)$ eine Aussageform. Dann gelten die folgenden Regeln:
+$$
+\begin{aligned}
+& \neg(\forall x: \mathscr{A}(x)) \Longleftrightarrow(\exists x: \neg \mathscr{A}(x)), \\
+& \neg(\exists x: \mathscr{A}(x)) \Longleftrightarrow(\forall x: \neg \mathscr{A}(x)) .
+\end{aligned}
+$$}
+
+\clm{Analysis}{}{Analysis macht spaß!!!}
+\ex{}{Die Aussage $\forall x \in \mathbb{N}: x^2=4$ ist falsch, aber die Aussage $\exists x \in \mathbb{N}: x^2=4$ ist wahr.
+Bei Aussageformen mit mehreren freien Variablen führt das Anwenden eines Quantors wieder zu einer Aussageform, und erst wenn alle Variablen quantifiziert sind, erhält man eine Aussage.}
+\thm{}{}
+\cor{}{Durch den oben durchgeführten Beweis könenn wir zeigen...}
+\mlenma{}{Angenommen $\vec{v_1}, \dots, \vec{v_n} \in \RR[n]$ ist ein Unterraum von $\RR^n$.}
+\mprop{}{Für alle $z, w \in \mathbb{C}$ gilt:\\
+1. $\overline{(\bar{z})}=z$,\\
+2. $\overline{z+w}=\bar{z}+\bar{w}$,\\
+3. $\overline{z w}=\bar{z} \cdot \bar{w}$,\\
+4. Ist $z=x+y i$ mit $x, y \in \mathbb{R}$, so ist $z \bar{z}=x^2+y^2$.\\
+5. $\Re e(z)=\frac{1}{2}(z+\bar{z}), \Im m(z)=\frac{1}{2 i}(z-\bar{z})$.}
+\end{document}
