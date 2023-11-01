@@ -57,6 +57,46 @@ Eine Familie von Mengen (Mengenfamilie) ist gegeben durch $A_j$ fpr jeden $j\in 
 Schreibe:$$\{A_j\}_{j\in J}$$
 }
 \dfn{Schnitt und Vereinigungsmengen}{
+Es kommt öfters vor, dass man eine Menge $I$ gegeben hat (Indexmenge genannt) und jedem Element $i \in I$ der Indexmenge wird eine Menge $A_i$ zugeordnet. So eine Zuordnung nennt man dann auch Mengenfamilie indiziert über $I$. In so einem Fall schreibt man dann auch:
+$$\begin{aligned}
+& \bigcap_{i \in I} A_i:=\left\{x \in M \mid \forall i \in I: x \in A_i\right\} \\
+& \bigcup_{i \in I} A_i:=\left\{x \in M \mid \exists i \in I: x \in A_i\right\}
+\end{aligned}$$
+}
 
+\dfn{Kartesisches Produkt}{Sind $M$ und $N$ Mengen, und ist $m \in M$ und $n \in N$, so bezeichnet $(m, n)$ das geordnete Paar bestehend aus $m \in M$ und $n \in N$. Zwei solche Paare $\left(m_1, n_1\right)$ und $\left(m_2, n_2\right)$ sind nach Definition genau dann gleich, wenn $m_1=m_2$ und $n_1=n_2$. Man schreibt
+$$
+M \times N:=\{(x, y) \mid x \in M \wedge y \in N\}
+$$
+und nennt $M \times N$ das kartesische Produkt von $M$ und $N$.}
+
+\section{Relationen und Äquivalenzrelationen}
+
+\dfn{Relation}{
+Relation $R=(A, B, G)$\\
+$G \subset A \times B$ ( $G$ ist der Graph von $R=G_R$ )\\
+$(a, b) \in G \quad a$ ist $R$-verwandt zu $a R b$\\
+$$
+\begin{aligned}
+& R_1=\left(A_1, B_1, G_1\right) \\
+& R_2=\left(A_2, B_2, G_2\right) \\
+& R_1=R_2 \Leftrightarrow A_1=A_2 \wedge B_1=B_2 \wedge G_1=G_2
+\end{aligned}
+$$}
+
+\dfn{Inverse Relation}{Inverse Relation $R^{-1}$ :
+$$
+\begin{aligned}
+& R^{-1}=\left(B, A, G_{R^{-1}}\right) \\
+& G_{R^{-1}}=\left\{(b, a) \mid(a, b) \in G_R\right\}
+\end{aligned}
+$$}
+
+\dfn{Äquivalenzrelation}{
+Sei $R=(A, A, G)$ eine Relation, diese Relation heißt Äquivalenzrelation wenn gilt:
+$$R \text{ ist reflexiv: } \forall a \in A: a R a \quad(\forall a \in A:(a, a) \in G)$$
+$$R \text{ ist symetrisch: } \forall a_1, a_2 \in A: a_1 R a_2 \Leftrightarrow a_2 R a_1$$
+$$R  \text{ ist transitiv: } \forall a_1, a_2, a_3 \in A: a_1 R a_2 \wedge a_2 R a_3 \Rightarrow a_1 R a_3$$\\
+$\text { Ist } a_1 R a_2\left(\left(a_1, a_2\right) \in G\right) \text { so nennt man } a_1 \text { äquivalent zu } a_2 \text { bezüglich } R$
 }
 \end{document}
