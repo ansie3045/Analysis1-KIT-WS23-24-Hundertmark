@@ -1,0 +1,43 @@
+% Definition : \dfn{}{}
+%Frage: \qs{}
+%Beweis: \sol{ ...\qed}
+%Notiz: \note{}
+%Behauptung: \clm{}{}{}
+%Beispiel: \ex{}
+%Theorem: \thm{}{}
+%Korollar: \cor{}{}
+%Lemma: \mlenma{}{}
+%Satz: \mprop{}{}
+\documentclass{report}
+
+\input{./Setup/preamble}
+\input{./Setup/macros}
+\input{./Setup/letterfonts}
+
+\title{Analysis 1 Hundertmark WS 2023/2024} % Sets article title
+\author{\textit{Alle Angaben ohne Gewähr}} 
+\usepackage[ngerman]{babel}
+\date{\today} % Sets date for publication as date compiled
+\setcounter{chapter}{-1}
+
+\usepackage{subfiles}
+\begin{document}
+
+\maketitle
+
+\newpage
+
+
+\chapter{Beispiele}
+ \subfile{Kapitel/0Beispiele}%Vorlesung 1 und Anfang 2
+
+ \chapter{Aussagenlogik}%Vorlesung 2
+ \subfile{Kapitel/1Aussagenlogik}
+
+ \chapter{Mengen}%Vorlesung 2,3
+ \subfile{Kapitel/2Mengen}
+
+ \chapter{Relationen und Äquivalenzrelationen}%Vorlesung 3
+ \subfile{Kapitel/3Relationen}
+ 
+\end{document}

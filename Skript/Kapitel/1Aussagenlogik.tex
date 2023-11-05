@@ -1,0 +1,51 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\dfn{Aussage}{Eine Aussage ist eine Behauptung, welche sprachlich, oder durch eine Formel formuliert ist. Diese kann entweder wahr (w), oder falsch sein. (Prinzip vom ausgeschlossenen Dritten)\\\\
+\textbf{Hinweis: Ein Beispiel beweist niemals etwas. Ein Gegenbeispiel hingegen, beweist, dass die Aussage falsch ist!}}
+
+\ex{}{\begin{itemize}
+                \item Bielefeld existiert (w)
+                \item 2+2=5 (f)
+                \item es gibt unendlich viele Primzahlen (w)
+    \end{itemize}}
+
+\dfn{Konjunktion, Disjunktion, Implikation}{
+Seien p,q Aussagen:\\
+\begin{itemize}
+                \item Konjunktion: $p \land q$ (p und q) \glqq und\grqq{}
+                \item Disjunktion: $p\lor q$ (p oder q) \glqq oder\grqq{}
+                \item Implikation: $p \implies q$ (p impliziert q) \glqq wenn...dann\grqq{}
+                \item Äquivalenz: $p\iff q$ (p und q sind äquivalent) \glqq genau dann, wenn...\grqq{}
+                \item $(p \lor q)\land (\lnot p\lor \lnot q)$ \glqq entweder..., oder...\grqq{}
+            \end{itemize}
+}
+
+\subsection{Aussagenform $H(.)$}Wenn wir eine Aussage H(x) für die Variable x haben:\\
+            Bspw.:\\
+            $H_1(x):=(x^2-3x+2=0)$\\
+            $H_2(x):=(x=1\lor x=2)$\\
+            $H_1(x)\iff H_2(x)$
+
+\subsection{Beweisstruktur}$\underbrace{p}_{\text{Voraussetzung:\\ hinreichende Bedingung für q}}\implies \underbrace{q}_{\text{Behauptung:\\ notwendige Bedingung für p}}$\\\\
+            Beweis: $p \implies r_1\implies r_2\implies r_3\implies r_4\implies ... \implies r_n\implies q$\\
+            $r_1, ... r_n$ sind bereits bekannte wahre Aussagen oder Axiome.
+\subsection{Regeln der Aussagenlogik}
+Seien $A$, $B$ und $C$ Aussagen, so sind folgende Aussagen wahr:
+            \begin{enumerate}
+                \item $A\implies A$
+                \item $(A\implies B) \land (B \implies C)\implies (A\implies C)$ (Transitivität)
+                \item$(A\land B)\land C \iff A\land B\land C$ und $(A\lor B)\lor C \iff A\lor B\lor C$ (Assoziativität)
+                \item $A\land B \iff B\land A$ und $A\lor B \iff B\lor A und (A\iff B) \iff (B\iff A)$ (Kommutativität)
+                \item $A\land (B\lor C)\iff (A\land B) \lor (A\land C) und A\lor (B\land C)\iff (A\lor B) \land (A\lor C)$ (Distributivität)
+                \item $(B\implies C)\implies ((A\land B)\implies (A \land C))$  (Monotonie)
+                \item $\lnot (A\land B)\iff \lnot A\lor \lnot B und \lnot (A\lor B)\iff \lnot A\land \lnot B$  (Morgansche Regeln)
+                \item $\lnot(\lnot A)\iff A$ (Doppelte Negation)
+		\item $A\implies B \iff \lnot B\implies \lnot A$ (Kontraposition)
+  		\item $A\implies B \iff \lnot A\lor B$ (Implikation)
+    		\item $(A\iff B) \land (B\iff C) \iff (A\iff C)$
+      		\item $(A\iff B) \iff (A\implies B)\land (B\implies A)$ (Äquivalenz)
+		\item $(A\iff B) \iff (A\land B)\lor (\lnot A\land \lnot B)$
+
+            \end{enumerate}
+
+\end{document}
