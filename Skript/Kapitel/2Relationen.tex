@@ -32,6 +32,7 @@ $$
 \end{aligned}
 $$}
 
+
 \dfn{Äquivalenzrelation}{
 Sei $R=(A, A, G)$ eine Relation, diese Relation heißt Äquivalenzrelation wenn gilt:
 $$R \text{ ist reflexiv: } \forall a \in A: a R a \quad(\forall a \in A:(a, a) \in G)$$
@@ -80,5 +81,51 @@ Zerlegung: $F=\left\{A_j\right\}_{j \in J} \quad A_j \subset A$ mit: \\
 2) $$\left.j_1, j_2 \in\right], j_1 \neq j_2: A_{j_1} \cap A_{j_2}=\varnothing$$\\
 3) $$\bigcup_{j \in J} A_j=A$$}
 
+\section{Funktionen}
+\dfn{Abbildung}{Gegeben: Mengen A,B\\
+Funktion f von A nach B ist eine Abbildung, die Elemente in A genau ein Element in B zuordnet.\\
+Schrieben: $$f: A\to B, x\mapsto f(x)$$
+$$f:A\to B, a\mapsto b=f(a)$$
+zu $a\in A$ gibt es $f(a)\in B$.\\
+\leadsto Tupel $(a, f(a))\in AxB$\\
+$\implies \{(a,f(a)): a\in A \subseteq AxB\}$}
+\dfn{Funktion}{Eine Relation R=(A,B,G) heißt Funktion bzw Abbildung, wenn $\forall a\in A : \exists ! b\in B$ mit $(a,b)\in G$ setzten dazu: $f(a)=b$}
+\ex{}{$$f:Z\to R, n\mapsto 3n^2+7$$
+$$g: z\to z, n\mapsto 3n^2+7$$
+$$h: [0, \infty ) \to R, x\mapsto x^2+3x+4$$
+$$j:R\to R, x\mapsto x^2+3x+4$$}
+\subsection{Schreibweise}
+
+$f:A\to B$ Fkt.
+\begin{enumerate}
+    \item $m\subseteq A: f(m) := \{b\in B| \exists x\in m : f(x) \in N\}$  Bild von $m(\subseteq A)$ unter $f$\\
+    $Bild(f)=Bild(A)$
+    \item $N\subseteq B: f^{-1}(N):=\{a\in A|f(a) \in N\}$ Urbild von $N$ unter $f$\\
+    u.a. ist für jede Fkt. $f:A\to B$ $f^{-1}: \mathcal{P}(B)\to \mathcal{P}(A)$, wie oben definiert\\
+    ! $N\capBild(f)=\emptyset \imlies f^{-1}(N)=\emptyset$ !
+    \item $m\subseteq A\+ f: A\to B\+ f|_m : m\to B, x\mapsto f(x)$ Einschränkung von f auf m
+\end{enumerate}
+
+\dfn{injektiv, surjektiv, bijektiv}{
+\begin{enumerate}
+    \item f ist \textbf{injektiv}, falls $\forall a_1, a_2\in A: f(a_1)=f(a_2) \implies a_1 =a_2$
+    \item f ist \textbf{surjektiv}, falls $\forall b\in B: \exists a\in A: f(a)=b$ | Bild(f)=B
+    \item f ist \textbf{bijektiv}, falls es injektiv und surjetkiv ist. 
+\end{enumerate}
+! $f:A\to B$ injektiv $\iff \~{f}: A\to Bild(f), a\mapsto f(a)$ surjektiv
+! $f:A\to B$ bijektiv $\iff$ Existiert die Inverse $f^{-1}: B\to A, b\mapsto a$ mit $f(a)=b$
+}
+\section{Geordnete Mengen}
+\dfn{Ordungsrelation}{A Menge und R Relation auf A.\\
+R heißt Ordungsrelation geschrieben $<$, falls $\forall a\in A: a<a$ (Reflexivität)\\
+$\forall a_1, a_2, a_3 \in A: a_1<a_2 \land a_2<a_3 \implies a_1<a_3$ (Transitivität)\\
+$\forall a_1, a_2\in A : a_1<a_2\land a_2<a_1 \implies a_1=a_2$ (Antisymetrie)\\
+Schreiben: $a_1<a_2$ für $a_1Ra_2:(a_1,a_2)\in G_R$\\
+$(A,<)$ heißt teilweise geordnete Menge.\\
+Nicht alle Paare $(a_1, a_2)$ müssen vergleichbar sein.\\
+$T\subseteq A$ heißt geordnet, Kette falls $a_1, a_2 \in T \implies a_1<a_2 \lor a_2<a_1$}
+
+\ex{\mathcal{P}}{$m,N\subseteq A:m<N$, falls $n\subseteq N$\\
+$(N,<): n<m$ falls $n|m$ $n$ teilt $m$}
 
 \end{document}
